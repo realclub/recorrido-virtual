@@ -1,0 +1,405 @@
+{
+  "venues": [
+    {
+      "id": "asia",
+      "name": "Sede Asia",
+      "tagline": "Playa, mar y vida de club frente al Pacífico.",
+      "description": "Contenido de prueba. Reemplazar con la reseña oficial de la sede.",
+      "startScene": "asia-recepcion",
+      "scenes": [
+        {
+          "id": "asia-recepcion",
+          "name": "Ingreso",
+          "pano": "panos/asia-recepcion.jpg",
+          "thumb": "panos/asia-recepcion-thumb.jpg",
+          "map": {
+            "x": 12,
+            "y": 75
+          },
+          "initialView": {
+            "yaw": -43,
+            "pitch": 0,
+            "fov": 70
+          },
+          "description": "Punto de partida del recorrido por la sede. Texto de prueba.",
+          "hotspots": [
+            {
+              "type": "link",
+              "yaw": -43,
+              "pitch": -8,
+              "target": "asia-caseta",
+              "label": "Caseta de ingreso"
+            },
+            {
+              "type": "info",
+              "yaw": -57,
+              "pitch": 12,
+              "title": "Bienvenida",
+              "text": "Aquí irá el texto informativo de este espacio: historia, horarios o datos de interés de la sede."
+            }
+          ],
+          "coverage": {
+            "yawMin": -82.8,
+            "yawMax": 82.7,
+            "pitchMax": 41.1,
+            "pitchMin": -25.4
+          }
+        },
+        {
+          "id": "asia-caseta",
+          "name": "Caseta de ingreso",
+          "pano": "panos/asia-caseta.jpg",
+          "thumb": "panos/asia-caseta-thumb.jpg",
+          "map": {
+            "x": 22,
+            "y": 66
+          },
+          "initialView": {
+            "yaw": 0,
+            "pitch": 0,
+            "fov": 70
+          },
+          "description": "Control de acceso a la sede. Texto de prueba.",
+          "hotspots": [
+            {
+              "type": "link",
+              "yaw": -52,
+              "pitch": -6,
+              "target": "asia-recepcion",
+              "label": "Ingreso"
+            },
+            {
+              "type": "link",
+              "yaw": 60,
+              "pitch": -12,
+              "target": "asia-salon",
+              "label": "Paseo de palmeras"
+            },
+            {
+              "type": "info",
+              "yaw": 86,
+              "pitch": 12,
+              "title": "Caseta de control",
+              "text": "Aquí irá el texto informativo sobre el control de acceso, horarios y requisitos de ingreso."
+            }
+          ],
+          "coverage": {
+            "yawMin": -91.7,
+            "yawMax": 91.6,
+            "pitchMax": 43.0,
+            "pitchMin": -29.9
+          }
+        },
+        {
+          "id": "asia-salon",
+          "name": "Paseo de palmeras",
+          "pano": "panos/asia-salon.jpg",
+          "thumb": "panos/asia-salon-thumb.jpg",
+          "map": {
+            "x": 38,
+            "y": 55
+          },
+          "initialView": {
+            "yaw": 146,
+            "pitch": 0,
+            "fov": 90
+          },
+          "description": "Camino arbolado hacia la zona de playa.",
+          "hotspots": [
+            {
+              "type": "link",
+              "yaw": -31,
+              "pitch": -15,
+              "target": "asia-caseta",
+              "label": "Caseta de ingreso"
+            },
+            {
+              "type": "link",
+              "yaw": 146,
+              "pitch": -12,
+              "target": "asia-piscina",
+              "label": "Mirador"
+            },
+            {
+              "type": "link",
+              "yaw": 60,
+              "pitch": -15,
+              "target": "asia-bungalows",
+              "label": "Bungalows"
+            }
+          ]
+        },
+        {
+          "id": "asia-piscina",
+          "name": "Mirador",
+          "pano": "panos/asia-piscina.jpg",
+          "thumb": "panos/asia-piscina-thumb.jpg",
+          "map": {
+            "x": 62,
+            "y": 38
+          },
+          "initialView": {
+            "yaw": 23,
+            "pitch": 5,
+            "fov": 90
+          },
+          "description": "Vista abierta al mar. Texto de prueba.",
+          "hotspots": [
+            {
+              "type": "link",
+              "yaw": -95,
+              "pitch": -15,
+              "target": "asia-salon",
+              "label": "Paseo de palmeras"
+            },
+            {
+              "type": "link",
+              "yaw": 80,
+              "pitch": -15,
+              "target": "asia-restaurante",
+              "label": "Orilla"
+            },
+            {
+              "type": "info",
+              "yaw": 23,
+              "pitch": 30,
+              "title": "Punto de interés",
+              "text": "Texto de prueba para describir un elemento destacado del espacio, como una obra, una placa o un dato histórico."
+            }
+          ]
+        },
+        {
+          "id": "asia-restaurante",
+          "name": "Orilla",
+          "pano": "panos/asia-restaurante.jpg",
+          "thumb": "panos/asia-restaurante-thumb.jpg",
+          "map": {
+            "x": 86,
+            "y": 22
+          },
+          "initialView": {
+            "yaw": 0,
+            "pitch": 0,
+            "fov": 90
+          },
+          "description": "Frente al agua, el punto más abierto del recorrido.",
+          "hotspots": [
+            {
+              "type": "link",
+              "yaw": -31,
+              "pitch": -18,
+              "target": "asia-piscina",
+              "label": "Mirador"
+            }
+          ]
+        },
+        {
+          "id": "asia-bungalows",
+          "name": "Bungalows",
+          "pano": "panos/asia-bungalows.jpg",
+          "thumb": "panos/asia-bungalows-thumb.jpg",
+          "map": {
+            "x": 44,
+            "y": 72
+          },
+          "initialView": {
+            "yaw": 15,
+            "pitch": 0,
+            "fov": 70
+          },
+          "description": "Calle interna de los bungalows. Texto de prueba.",
+          "hotspots": [
+            {
+              "type": "link",
+              "yaw": -72,
+              "pitch": -6,
+              "target": "asia-bungalow",
+              "label": "Bungalow con terraza"
+            },
+            {
+              "type": "link",
+              "yaw": 22,
+              "pitch": -10,
+              "target": "asia-salon",
+              "label": "Paseo de palmeras"
+            }
+          ],
+          "coverage": {
+            "yawMin": -108.7,
+            "yawMax": 108.5,
+            "pitchMax": 54.5,
+            "pitchMin": -39.3
+          }
+        },
+        {
+          "id": "asia-bungalow",
+          "name": "Bungalow con terraza",
+          "pano": "panos/asia-bungalow.jpg",
+          "thumb": "panos/asia-bungalow-thumb.jpg",
+          "map": {
+            "x": 56,
+            "y": 82
+          },
+          "initialView": {
+            "yaw": 0,
+            "pitch": 0,
+            "fov": 70
+          },
+          "description": "Bungalow con terraza de madera. Texto de prueba.",
+          "hotspots": [
+            {
+              "type": "link",
+              "yaw": 60,
+              "pitch": -15,
+              "target": "asia-bungalows",
+              "label": "Calle de bungalows"
+            },
+            {
+              "type": "info",
+              "yaw": 10,
+              "pitch": 14,
+              "title": "Bungalow",
+              "text": "Aquí irá la descripción del bungalow: capacidad, equipamiento y tarifas."
+            }
+          ],
+          "coverage": {
+            "yawMin": -67.3,
+            "yawMax": 67.2,
+            "pitchMax": 53.9,
+            "pitchMin": -49.4
+          }
+        }
+      ]
+    },
+    {
+      "id": "ricardo-palma",
+      "name": "Sede Ricardo Palma",
+      "tagline": "Naturaleza, deporte y descanso en la sierra de Lima.",
+      "description": "Contenido de prueba. Reemplazar con la reseña oficial de la sede.",
+      "startScene": "rp-ingreso",
+      "scenes": [
+        {
+          "id": "rp-ingreso",
+          "name": "Ingreso",
+          "pano": "panos/rp-ingreso.jpg",
+          "thumb": "panos/rp-ingreso-thumb.jpg",
+          "map": {
+            "x": 12,
+            "y": 70
+          },
+          "initialView": {
+            "yaw": 119,
+            "pitch": 0,
+            "fov": 90
+          },
+          "description": "Ingreso principal a la sede.",
+          "hotspots": [
+            {
+              "type": "link",
+              "yaw": 119,
+              "pitch": -12,
+              "target": "rp-clubhouse",
+              "label": "Casa Club"
+            }
+          ]
+        },
+        {
+          "id": "rp-clubhouse",
+          "name": "Casa Club",
+          "pano": "panos/rp-clubhouse.jpg",
+          "thumb": "panos/rp-clubhouse-thumb.jpg",
+          "map": {
+            "x": 38,
+            "y": 50
+          },
+          "initialView": {
+            "yaw": 130,
+            "pitch": 0,
+            "fov": 90
+          },
+          "description": "Punto de encuentro de los socios.",
+          "hotspots": [
+            {
+              "type": "link",
+              "yaw": -60,
+              "pitch": -15,
+              "target": "rp-ingreso",
+              "label": "Ingreso"
+            },
+            {
+              "type": "link",
+              "yaw": 110,
+              "pitch": -15,
+              "target": "rp-canchas",
+              "label": "Jardines"
+            },
+            {
+              "type": "info",
+              "yaw": 130,
+              "pitch": 12,
+              "title": "Casa Club",
+              "text": "Texto informativo de prueba sobre la Casa Club: historia, usos y servicios."
+            }
+          ]
+        },
+        {
+          "id": "rp-canchas",
+          "name": "Jardines",
+          "pano": "panos/rp-canchas.jpg",
+          "thumb": "panos/rp-canchas-thumb.jpg",
+          "map": {
+            "x": 64,
+            "y": 35
+          },
+          "initialView": {
+            "yaw": 0,
+            "pitch": 0,
+            "fov": 90
+          },
+          "description": "Áreas verdes y de descanso.",
+          "hotspots": [
+            {
+              "type": "link",
+              "yaw": -10,
+              "pitch": -15,
+              "target": "rp-clubhouse",
+              "label": "Casa Club"
+            },
+            {
+              "type": "link",
+              "yaw": 100,
+              "pitch": -15,
+              "target": "rp-terraza",
+              "label": "Valle"
+            }
+          ]
+        },
+        {
+          "id": "rp-terraza",
+          "name": "Valle",
+          "pano": "panos/rp-terraza.jpg",
+          "thumb": "panos/rp-terraza-thumb.jpg",
+          "map": {
+            "x": 88,
+            "y": 20
+          },
+          "initialView": {
+            "yaw": 0,
+            "pitch": 0,
+            "fov": 90
+          },
+          "description": "Vista a las montañas.",
+          "hotspots": [
+            {
+              "type": "link",
+              "yaw": 180,
+              "pitch": -15,
+              "target": "rp-canchas",
+              "label": "Jardines"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

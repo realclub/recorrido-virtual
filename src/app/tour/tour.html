@@ -1,0 +1,98 @@
+<div class="stage">
+  <div #pano class="pano" aria-label="Vista panorámica 360°"></div>
+
+  @if (venue(); as v) {
+    @if (scene(); as s) {
+      <!-- Barra superior -->
+      <header class="top">
+        <a routerLink="/" class="back" aria-label="Volver al inicio">←</a>
+        <img src="images/logos/LOGO_H_BLANCO-8.png" alt="Real Club de Lima" class="logo" />
+        <div class="title">
+          <span class="venue">{{ v.name }}</span>
+          <strong>{{ s.name }}</strong>
+        </div>
+        <button class="chip menu-btn" (click)="menuOpen.set(true)">☰ Ambientes</button>
+      </header>
+
+      <!-- Descripción del ambiente -->
+      @if (s.description) {
+        <p class="desc">{{ s.description }}</p>
+      }
+
+      <!-- Controles -->
+      <div class="controls" role="toolbar" aria-label="Controles">
+        <button (click)="zoom(-0.15)" aria-label="Acercar">＋</button>
+        <button (click)="zoom(0.15)" aria-label="Alejar">－</button>
+        <button [class.on]="autorotate()" (click)="toggleAutorotate()" aria-label="Giro automático" title="Giro automático">⟳</button>
+        <button [class.on]="fullscreen()" (click)="toggleFullscreen()" aria-label="Pantalla completa" title="Pantalla completa">⛶</button>
+        @if (s.audio) {
+          <button [class.on]="playing()" (click)="toggleAudio()" aria-label="Audioguía" title="Audioguía">{{ playing() ? '❚❚' : '🔊' }}</button>
+          <audio #audio [src]="s.audio" (play)="playing.set(true)" (pause)="playing.set(false)" (ended)="playing.set(false)"></audio>
+        }
+      </div>
+
+      <!-- Plano -->
+      <aside class="map" [class.collapsed]="!mapOpen()">
+        <button class="map-head" (click)="mapOpen.set(!mapOpen())" [attr.aria-expanded]="mapOpen()">
+          Plano · {{ index() }}/{{ v.scenes.length }} <span>{{ mapOpen() ? '▾' : '▸' }}</span>
+        </button>
+        @if (mapOpen()) {
+          <div class="plan">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="lines">
+              @for (v2 of v.scenes; track v2.id) {
+                @for (h of v2.hotspots; track $index) {
+                  @if (h.type === 'link') {
+                    @for (t of [v.scenes.find(x => x.id === h.target)]; track $index) {
+                      @if (t) {
+                        <line [attr.x1]="v2.map.x" [attr.y1]="v2.map.y" [attr.x2]="t.map.x" [attr.y2]="t.map.y" />
+                      }
+                    }
+                  }
+                }
+              }
+            </svg>
+            @for (n of v.scenes; track n.id) {
+              <button class="node" [class.active]="n.id === s.id"
+                [style.left.%]="n.map.x" [style.top.%]="n.map.y"
+                (click)="go(n.id)" [attr.aria-label]="n.name" [title]="n.name"></button>
+            }
+          </div>
+        }
+      </aside>
+
+      <!-- Panel de información -->
+      @if (info(); as i) {
+        <div class="backdrop" (click)="info.set(null)"></div>
+        <section class="info" role="dialog" [attr.aria-label]="i.title">
+          <button class="close" (click)="info.set(null)" aria-label="Cerrar">✕</button>
+          <h2>{{ i.title }}</h2>
+          <p>{{ i.text }}</p>
+        </section>
+      }
+
+      <!-- Menú de ambientes -->
+      @if (menuOpen()) {
+        <div class="backdrop" (click)="menuOpen.set(false)"></div>
+        <nav class="drawer" aria-label="Ambientes">
+          <div class="drawer-head">
+            <h2>{{ v.name }}</h2>
+            <button class="close" (click)="menuOpen.set(false)" aria-label="Cerrar">✕</button>
+          </div>
+          <ul>
+            @for (n of v.scenes; track n.id; let i = $index) {
+              <li>
+                <button [class.active]="n.id === s.id" (click)="go(n.id)">
+                  <img [src]="n.thumb" alt="" loading="lazy" />
+                  <span><small>{{ i + 1 }}</small>{{ n.name }}</span>
+                </button>
+              </li>
+            }
+          </ul>
+          <a class="switch" [routerLink]="'/'">Cambiar de sede</a>
+        </nav>
+      }
+    }
+  } @else {
+    <p class="loading">Cargando recorrido…</p>
+  }
+</div>

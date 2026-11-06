@@ -1,0 +1,53 @@
+<main class="home">
+  @if (data(); as d) {
+    <div class="bg" [style.background-image]="'url(' + d.venues[0].scenes[0].thumb + ')'" aria-hidden="true"></div>
+  }
+
+  <header>
+    <img src="images/logos/LOGO_H_BLANCO-8.png" alt="Real Club de Lima" class="logo" />
+    <span class="badge">Recorrido virtual 360°</span>
+  </header>
+
+  <section class="hero">
+    <p class="eyebrow">Bienvenido</p>
+    <h1>Descubre el <em>Real Club de Lima</em> desde donde estés</h1>
+    <p class="lead">Elige una sede y recorre ambiente por ambiente, como en un museo.</p>
+
+    @if (data(); as d) {
+      <ul class="stats">
+        <li><strong>{{ d.venues.length }}</strong> sedes</li>
+        <li><strong>{{ totalScenes() }}</strong> ambientes</li>
+        <li><strong>360°</strong> en cualquier dispositivo</li>
+      </ul>
+    }
+  </section>
+
+  <section class="venues" aria-label="Sedes">
+    @for (v of data()?.venues; track v.id) {
+      <a class="card" [routerLink]="['/sede', v.id]">
+        <img [src]="v.scenes[0].thumb" [alt]="v.name" loading="lazy" />
+        <div class="shade"></div>
+        <span class="count">{{ v.scenes.length }} ambientes</span>
+        <div class="body">
+          <h2>{{ v.name }}</h2>
+          <p>{{ v.tagline }}</p>
+          <span class="cta">Iniciar recorrido <i>→</i></span>
+        </div>
+      </a>
+    }
+  </section>
+
+  <section class="how" aria-label="Cómo recorrer">
+    <h3>Cómo recorrer</h3>
+    <ol>
+      <li><span>1</span><div><strong>Mira alrededor</strong><small>Arrastra con el dedo o el mouse.</small></div></li>
+      <li><span>2</span><div><strong>Avanza</strong><small>Toca los círculos dorados para pasar al siguiente ambiente.</small></div></li>
+      <li><span>3</span><div><strong>Descubre</strong><small>Los puntos "i" muestran información de cada espacio.</small></div></li>
+    </ol>
+  </section>
+
+  <footer>
+    <span>© Real Club de Lima</span>
+    <a href="https://www.realclubdelima.org.pe" target="_blank" rel="noopener">realclubdelima.org.pe</a>
+  </footer>
+</main>
