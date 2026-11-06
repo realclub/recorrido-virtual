@@ -6,12 +6,12 @@
 .top {
   position: absolute; inset: 0 0 auto 0; z-index: 5;
   display: flex; align-items: center; gap: 14px; padding: 12px 16px;
-  background: linear-gradient(to bottom, rgba(0, 20, 60, 0.85), transparent);
+  background: linear-gradient(to bottom, rgb(var(--primary-dark-rgb) / 0.85), transparent);
   pointer-events: none;
   > * { pointer-events: auto; }
 }
 .back, .chip, .controls button {
-  background: rgba(0, 34, 119, 0.8); color: #fff; border: 1px solid rgba(209, 171, 102, 0.6);
+  background: rgb(var(--primary-dark-rgb) / 0.8); color: #fff; border: 1px solid rgb(var(--secondary-rgb) / 0.6);
   backdrop-filter: blur(6px); cursor: pointer; text-decoration: none; transition: background 0.2s;
   &:hover { background: var(--primary-light); }
   &:focus-visible { outline: 2px solid var(--secondary); outline-offset: 2px; }
@@ -27,7 +27,7 @@
 .desc {
   position: absolute; z-index: 4; left: 50%; bottom: 20px; transform: translateX(-50%);
   max-width: min(560px, calc(100% - 32px)); margin: 0; text-align: center;
-  background: rgba(0, 20, 60, 0.75); backdrop-filter: blur(6px);
+  background: rgb(var(--primary-dark-rgb) / 0.75); backdrop-filter: blur(6px);
   padding: 10px 18px; border-radius: 14px; font-size: 0.9rem;
 }
 
@@ -40,7 +40,7 @@
 
 .map {
   position: absolute; z-index: 5; left: 16px; bottom: 20px; width: 220px;
-  background: rgba(0, 20, 60, 0.82); border: 1px solid rgba(209, 171, 102, 0.5);
+  background: rgb(var(--primary-dark-rgb) / 0.82); border: 1px solid rgb(var(--secondary-rgb) / 0.5);
   border-radius: 14px; backdrop-filter: blur(6px); overflow: hidden;
 }
 .map-head {
@@ -51,16 +51,16 @@
   background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.04) 0 8px, transparent 8px 16px);
   border-radius: 8px;
   .lines { position: absolute; inset: 0; width: 100%; height: 100%;
-    line { stroke: rgba(209, 171, 102, 0.55); stroke-width: 1.2; vector-effect: non-scaling-stroke; } }
+    line { stroke: rgb(var(--secondary-rgb) / 0.55); stroke-width: 1.2; vector-effect: non-scaling-stroke; } }
 }
 .node {
   position: absolute; width: 16px; height: 16px; border-radius: 50%; transform: translate(-50%, -50%);
   background: #fff; border: 2px solid var(--primary); padding: 0; cursor: pointer;
-  &.active { background: var(--secondary); border-color: #fff; width: 20px; height: 20px; box-shadow: 0 0 0 5px rgba(209, 171, 102, 0.35); }
+  &.active { background: var(--secondary); border-color: #fff; width: 20px; height: 20px; box-shadow: 0 0 0 5px rgb(var(--secondary-rgb) / 0.35); }
   &:hover { background: var(--secondary-light); }
 }
 
-.backdrop { position: absolute; inset: 0; z-index: 8; background: rgba(0, 10, 40, 0.55); }
+.backdrop { position: absolute; inset: 0; z-index: 8; background: rgb(var(--primary-dark-rgb) / 0.55); }
 .close { background: none; border: 0; color: inherit; font-size: 1.2rem; cursor: pointer; padding: 6px 10px; }
 
 .info {
@@ -84,7 +84,7 @@
     width: 100%; display: flex; align-items: center; gap: 12px; padding: 8px; text-align: left; cursor: pointer;
     background: rgba(255, 255, 255, 0.06); color: #fff; border: 1px solid transparent; border-radius: 12px;
     &:hover { background: rgba(255, 255, 255, 0.12); }
-    &.active { border-color: var(--secondary); background: rgba(209, 171, 102, 0.15); }
+    &.active { border-color: var(--secondary); background: rgb(var(--secondary-rgb) / 0.15); }
     img { width: 76px; height: 52px; object-fit: cover; border-radius: 8px; flex: none; }
     span { font-weight: 600; font-size: 0.95rem; }
     small { display: block; color: var(--secondary); font-size: 0.7rem; letter-spacing: 0.1em; }
