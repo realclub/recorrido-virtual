@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'TT Firs Neue'; font-style: normal; font-weight: 100 900; font-display: swap;
+  src: url('/fonts/TTFirsNeue-Var.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'TT Firs Neue'; font-style: italic; font-weight: 100 900; font-display: swap;
+  src: url('/fonts/TTFirsNeue-Var-Italic.woff2') format('woff2');
+}
 :root {
   --primary: #003399;
   --primary-light: #1a4db3;
@@ -9,8 +17,9 @@
   --primary-rgb: 0 51 153;
   --primary-dark-rgb: 0 34 119;
   --secondary-rgb: 209 171 102;
-  --font-body: 'Montserrat', system-ui, sans-serif;
-  --font-display: 'Cormorant Garamond', Georgia, serif;
+  /* TT Firs Neue (versión Trial). Al adquirir la licencia, reemplazar los .woff2 de public/fonts con el mismo nombre. */
+  --font-body: 'TT Firs Neue', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'TT Firs Neue', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; height: 100%; }
